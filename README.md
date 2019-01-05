@@ -1,6 +1,6 @@
 # demo-web-rc
 
-> 曹老师
+>李超群，向宴颉，廖家楼，舒润，张良菠
 
 ## Build Setup
 
