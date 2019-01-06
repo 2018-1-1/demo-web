@@ -2,7 +2,7 @@
    <div class="box">
      <div class="tab">
        <div class="tab-menu">
-         <span :class="{selected:index === num}" @click="toggleTab(item.toggleTab,index)" v-for="(item,index) of tabs">{{item.name}}</span>
+         <span :class="{selected:index === num}" @click="toggleTab(item.toggleTab,index)" v-for="(item,index) of tabs" :key="index">{{item.name}}</span>
        </div>
        <div class="tab-box">
          <!--学生登录开始-->
