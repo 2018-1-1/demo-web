@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :style="{height: height}">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
   </div>
@@ -7,7 +7,12 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      height: document.documentElement.clientHeight + 'px'
+    }
+  }
 }
 </script>
 
@@ -18,6 +23,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 60px; */
 }
 </style>
