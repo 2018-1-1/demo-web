@@ -1,4 +1,4 @@
-﻿# demo-web-rc
+# demo-web-rc
 
 >李超群，向宴颉，廖家楼，舒润，张良菠
 
@@ -19,4 +19,3 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-1
