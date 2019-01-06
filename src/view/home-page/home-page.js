@@ -5,23 +5,23 @@ export const homePage={
             centerDialogVisible: false,
             menus:[{
                 name:'调查问卷',
-                path:'/',
+                path:'/questionNairerequire',
                 icon:"fa fa-braille"
             },{
                 name:'因子分析',
-                path:'',
+                path:'/factorAnalysis',
                 icon:"fa fa-bar-chart"
             },{
                 name:'个人信息录入',
-                path:'',
+                path:'/entryAgreement',
                 icon:"fa fa-file-text-o"
             },{
                 name:'课程达成度',
-                path:'',
+                path:'/degree',
                 icon:"fa fa-check-square-o"
             },{
                 name:'个人信息',
-                path:'',
+                path:'/userInfo',
                 icon:"fa fa-address-card"
             }]
         }
