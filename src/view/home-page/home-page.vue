@@ -41,7 +41,7 @@
           </el-dialog>
         </el-header>
         <el-main>
-
+          <router-view></router-view>
         </el-main>
         <el-footer style="position: relative;bottom:0px">
           <div class="division">
@@ -56,7 +56,7 @@
         </el-footer>
       </el-container>
     </el-container>
-    <router-view></router-view>
+    
   </div>
 </template>
 <script>

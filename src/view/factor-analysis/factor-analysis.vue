@@ -1,6 +1,5 @@
 <template>
     <div>
-        dsada
     </div>
 </template>
 <script>
