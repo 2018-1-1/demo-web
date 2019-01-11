@@ -106,7 +106,7 @@ export default {
   width: 410px;
   clear: both;
   top: 50px;
-  position: relative;
+  position: relative; 
   background-color: #FFFFFF;
   color: #000000;
   font-size: 16px;
