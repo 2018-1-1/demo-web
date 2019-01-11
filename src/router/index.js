@@ -6,7 +6,7 @@ import userInfo from '../view/user-info/user-info.vue'
 import factorAnalysis from '../view/factor-analysis/factor-analysis.vue'
 import degree from '../view/schemas-microsoft-com/degree.vue'
 import entryAgreement from '../view/entry-agreement/entry-agreement.vue'
-import Login from '../view/login_page/Login.vue'
+// import Login from '../view/login_page/Login.vue'
 Vue.use(Router)
 
 export default new Router({

@@ -41,8 +41,8 @@ export const homePage={
                 this.isCollapse=true
             }
         },
-        handleOpen(key, keyPath) {
-            console.log(key, keyPath);
+        handleOpen(key) {
+            console.log(key);
           },
           handleClose(key, keyPath) {
             console.log(key, keyPath);

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <el-container>
+    <el-container >
       <el-aside width="200px">
-        <el-menu default-active="0" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        <el-menu default-active="/home" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
           background-color="#353d47" text-color="#fff" active-text-color="#ffd04b" style="height:100%">
-          <el-menu-item index="0" style="background:#22a7f0">
+          <el-menu-item index="/home" style="background:#22a7f0">
             <i class="el-icon-menu" style="color:white"></i>
             <span>人才培养管理系统</span>
           </el-menu-item>
@@ -56,6 +56,7 @@
         </el-footer>
       </el-container>
     </el-container>
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -99,7 +100,7 @@
   }
 
   .footer {
-    width: 1720px;
+    width: 2400px;
     margin-left:-20px;
     height: 100px;
     background: black;

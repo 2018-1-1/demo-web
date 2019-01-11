@@ -4,7 +4,13 @@ export const degree={
             
         }
     },
+    created() {
+
+    },
     methods: {
         
-    }
+    },
+    mounted() {
+        
+    },
 }

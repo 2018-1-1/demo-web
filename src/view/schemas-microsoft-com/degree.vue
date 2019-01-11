@@ -1,5 +1,5 @@
 <template>
-    
+    <div>dsd</div>
 </template>
 <script>
 import {degree} from './degree.js'
