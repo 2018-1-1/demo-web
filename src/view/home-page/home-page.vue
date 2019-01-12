@@ -96,7 +96,7 @@
 
   .footer {
     width: 1725px;
-    margin-left:-35px;
+    margin-left:-30px;
     height: 100px;
     background: black;
     padding-top: 50px
