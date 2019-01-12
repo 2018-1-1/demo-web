@@ -51,19 +51,19 @@ export default {
 </script>
 
 <style scoped lang="stylus">
-.box {
-  width: 100%;
-  height: 100%;
-  background: url("~@/assets/img/bg.jpg") 0 0/cover no-repeat;
-}
-.box .tab {
-  width: 410px;
-  position: relative;
-  top: 80px;
-  margin: 0px auto;
-  text-align: center;
-  padding: 1px;
-}
+  .box {
+    width: 1500px;
+    height: 750px;
+    background: url("~@/assets/img/bg.jpg") 0 0/cover no-repeat;
+  }
+  .box .tab {
+    width: 410px;
+    position: relative;
+    top: 80px;
+    margin-left: 548px;
+    text-align: center;
+    padding: 1px;
+  }
 .tab .tab-menu {
   width: 100%;
   float: left;
