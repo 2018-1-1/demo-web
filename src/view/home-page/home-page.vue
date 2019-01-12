@@ -10,32 +10,32 @@
           </el-menu-item>
           <el-menu-item v-for="(item,key) in menus" :key="key" :index='item.path'>
             <i :class='item.icon'></i>
-            <span style="display:inline-block;margin-left:-140px">{{item.name}}</span>
+            <span style="display:inline-block;">{{item.name}}</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
-      <el-container style="position:relative;top:0;">
+      <el-container>
         <el-header style="padding:0">
           <!-- <i class="el-icon-caret-right" @click="pageActions"></i> -->
-          <el-card shadow="never">
+          <el-card shadow="never" style="width:1720px;margin-left:-10px;margin-top:-8px">
             <span style="font-family: Hiragino Sans GB;inline-height:64px;height:64px">光电技术学院本科人才培养管理系统</span>
-            <el-card shadow="hover" body-style="padding:0" style="margin-top:-1.5%;width:7%;height:70px;float:right">
-              <el-button type="text" style="height:80px;width:60%" @click="popover"><span>姓名</span><i class="el-icon-arrow-down"
+            <el-card shadow="hover" body-style="padding:0" style="margin-top:-1.5%;width:7%;height:70px;float:right;margin-right:-20px">
+              <el-button type="text" style="height:80px;width:60%;" @click="popover"><span>姓名</span><i class="el-icon-arrow-down"
                   style="color:red"></i></el-button>
             </el-card>
           </el-card>
           <el-dialog title="个人信息" :modal="false" width="450px" :show-close='false' :visible.sync="centerDialogVisible"
             style="padding-bottom:-50px">
-            <img src="../../assets/tou.png" style="width:450px;margin-left:-40px;margin-top:-10px">
+            <img src="../../assets/tou.png" style="width:450px;margin-left:-20px;margin-top:-10px">
             <el-row style="margin-left:-20px;width:450px;margin-top:-3px;margin-bottom:-30px;">
               <el-col :span="8">
-                <el-button>个人信息</el-button>
+                <el-button style="width:150px">个人信息</el-button>
               </el-col>
               <el-col :span="8">
-                <el-button>修改密码</el-button>
+                <el-button style="width:150px">修改密码</el-button>
               </el-col>
               <el-col :span="8">
-                <el-button>退出</el-button>
+                <el-button style="width:150px">退出</el-button>
               </el-col>
             </el-row>
           </el-dialog>
@@ -68,11 +68,6 @@
   }
 </script>
 <style>
-  * {
-    width: 100%;
-    margin: auto;
-    padding: 0;
-  }
 
   .el-header,
   .el-footer {
@@ -100,8 +95,8 @@
   }
 
   .footer {
-    width: 2400px;
-    margin-left:-20px;
+    width: 1725px;
+    margin-left:-35px;
     height: 100px;
     background: black;
     padding-top: 50px

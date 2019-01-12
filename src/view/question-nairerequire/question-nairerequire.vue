@@ -4,9 +4,9 @@
       <el-card>
         <h3 style="margin-left:-75px">{{questionnaire.name}}</h3>
         <el-form-item v-for="(item,key) in questionnaire.list" :key="key" :label="item.question">
-          <el-input v-if="item.type=='text'" style="width:700px;margin-left:-50%"></el-input>
-          <el-radio-group v-if="item.type=='radio'">
-            <el-radio v-for="(it,key) in item.questionnaire" :key="key" :label="it.value" style="width:50px;float:left;margin-left:50px">
+          <el-input v-if="item.type=='text'" type="textarea" style="margin-left:-134px;width:700px"></el-input>
+          <el-radio-group v-if="item.type=='radio'" style="margin-left:-742px">
+            <el-radio v-for="(it,key) in item.questionnaire" :key="key" :label="it.value" style="width:50px;margin-left:50px;float:left">
             </el-radio>
           </el-radio-group>
           <el-checkbox-group v-if="item.type=='checkbox'">
