@@ -16,7 +16,7 @@ export const homePage={
                 path:'/entryAgreement',
                 icon:"fa fa-file-text-o"
             },{
-                name:'课程达成度',
+                name:'人才培养计划达成度',
                 path:'/degree',
                 icon:"fa fa-check-square-o"
             },{
