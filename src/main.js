@@ -6,8 +6,11 @@ import router from './router'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 // import 'font-awesome/scss/font-awesome.scss'
+import 'font-awesome/css/font-awesome.css'
 Vue.config.productionTip = false
+import XLSX from 'xlsx'
 
+Vue.prototype.xlsx=XLSX
 Vue.use(ElementUI);
 
 /* eslint-disable no-new */
