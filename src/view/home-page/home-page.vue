@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-container >
+    <el-container>
       <el-aside width="200px">
         <el-menu default-active="/home" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
           background-color="#353d47" text-color="#fff" active-text-color="#ffd04b" style="height:100%">
@@ -43,7 +43,7 @@
         <el-main>
           <router-view></router-view>
         </el-main>
-        <el-footer style="position: relative;bottom:0px">
+        <el-footer>
           <div class="division">
             <h3>联系我们</h3>
             <h3 style="color: #888;font-weight: 400">--- CONTACT ---</h3>

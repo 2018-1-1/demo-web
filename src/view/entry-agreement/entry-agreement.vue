@@ -1,13 +1,11 @@
 <template>
-  <div>
     <el-card>
-      <el-select v-model="value4" clearable placeholder="请选择班级" style="width:200px;float:left">
-        <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
+      <el-select v-model="value" clearable placeholder="请选择班级">
+        <el-option v-for="(item,key) in options" :key="key" :label="item.label" :value="item.value">
         </el-option>
       </el-select>
-      <input id="upload" type="file" @change="importfxx(this)"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+      <input style="display:block;width:200px"  id="upload" type="file" @change="importfxx(this)"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
     </el-card>
-  </div>
 </template>
 <script>
   import {
@@ -17,3 +15,13 @@
     mixins: [entryAgreement]
   }
 </script>
+<style>
+  * {
+    width: 100%;
+    margin: auto;
+    padding: 0;
+  }
+   .el-select{
+    width: 25%;
+  }
+</style>
