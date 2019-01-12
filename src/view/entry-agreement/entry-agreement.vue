@@ -1,13 +1,20 @@
 <template>
   <div>
-
+    <el-card style="height:593px">
       <h3 style="margin-left:-75px">学生信息录入</h3>
-      <el-select v-model="value" clearable placeholder="请选择班级" style="width:15%">
-        <el-option v-for="(item,key) in options" :key="key" :label="item.label" :value="item.value" style="width:200px;">
-        </el-option>
-      </el-select>
-      <!-- <input style="display:block;width:200px"  id="upload" type="file" @change="importfxx(this)"  accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /> -->
-
+      <div style="margin-left:20%;margin-top:5%;">
+        <el-select v-model="value" clearable placeholder="请选择班级" style="display:inline-block;float:left">
+          <el-option v-for="(item,key) in options" :key="key" :label="item.label" :value="item.value">
+          </el-option>
+        </el-select>
+        <span style="display:inline-block;margin-left:-400px">
+        <span>学生信息:</span>
+        <el-input id="upload" style="width:250px;" type="file" @change="importfxx(this,0)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        <span>学生成绩:</span>        
+        <el-input id="upload" style="width:250px" type="file" @change="importfxx(this,1)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        </span>
+      </div>
+    </el-card>
   </div>
 </template>
 <script>
@@ -19,9 +26,4 @@
   }
 </script>
 <style>
-
-  
-   /* .el-select{
-    width: 25%;
-  } */
 </style>

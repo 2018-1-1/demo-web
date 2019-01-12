@@ -24,7 +24,7 @@ export const entryAgreement = {
     handleChange(value) {
       console.log(value);
     },
-    importfxx(obj) {
+    importfxx(obj,flag) {
       let _this = this;
       let inputDOM = this.$refs.inputer;
       // 通过DOM取文件数据
@@ -57,6 +57,7 @@ export const entryAgreement = {
           }
           outdata = XLSX.utils.sheet_to_json(wb.Sheets[wb.SheetNames[0]]); //outdata就是你想要的东西
           console.log(outdata)
+          // TODO 根据flag来判断传入的学生信息还是成绩
         }
         reader.readAsArrayBuffer(f);
       }
