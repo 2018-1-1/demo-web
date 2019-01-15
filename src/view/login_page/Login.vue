@@ -53,7 +53,7 @@ export default {
 <style scoped lang="stylus">
 .box {
   width: 100%;
-  height: 100%;
+  height: 1350px;
   background: url("~@/assets/img/bg.jpg") 0 0/cover no-repeat;
 }
 .box .tab {

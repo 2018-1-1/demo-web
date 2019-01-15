@@ -7,9 +7,9 @@
       <el-form-item label="密码" prop="pass" class="pass">
         <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder="输入密码"></el-input>
       </el-form-item>
-      <el-form-item label="验证码" prop="code" class="code">
+      <!-- <el-form-item label="验证码" prop="code" class="code">
         <el-input type="text" v-model="ruleForm.code" autocomplete="off" placeholder="输入验证码"></el-input>
-      </el-form-item>
+      </el-form-item> -->
       <el-checkbox v-model="checked" style="margin-top: 20px;">记住密码</el-checkbox>
       <el-form-item class="login-btn">
         <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
@@ -27,7 +27,7 @@ export default {
       ruleForm: {
         pass: '',
         number: '',
-        code: ''
+        // code: ''
       },
       rules: {
         pass: [
@@ -37,9 +37,9 @@ export default {
         number: [
           { required: true, message: '请输入学号', trigger: 'change' }
         ],
-        code: [
-          { required: true, message: '请输入验证码', trigger: 'change' }
-        ]
+        // code: [
+        //   { required: true, message: '请输入验证码', trigger: 'change' }
+        // ]
       }
     }
   },

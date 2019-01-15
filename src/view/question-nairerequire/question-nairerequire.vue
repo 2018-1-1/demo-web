@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form :model="questionnaire" :rules="rules" ref="ruleForm" label-width="700px">
+    <el-form :model="questionnaire" :rules="rules" ref="questionnaire" label-width="700px">
       <el-card>
         <h3 style="margin-left:-75px">{{questionnaire.name}}</h3>
         <el-form-item v-for="(item,key) in questionnaire.list" :key="key" :label="item.question">
@@ -14,7 +14,7 @@
           </el-checkbox-group>
         </el-form-item>
         <el-form-item style="margin-left:-780px">
-          <el-button type="primary" @click="submitForm('ruleForm')" style="width:200px">立即提交</el-button>
+          <el-button type="primary" @click="submitForm('questionnaire')" style="width:200px">立即提交</el-button>
         </el-form-item>
       </el-card>
     </el-form>

@@ -40,35 +40,44 @@ export const questionNairerequire = {
             id: 2,
             type: "text",
             question: "你来自何方",
-        
+
           }
         ]
       },
-      answerFrom:{
-        questionnaireId:null,
-        answerList:[{
-            id:null,
-            value:null,
+      answerFrom: {
+        questionnaireId: null,
+        answerList: [{
+          id: null,
+          value: null,
         }]
       },
       rules: {
 
-      }
+      },
     }
   },
   methods: {
-    ubmitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
-          }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      }
+    submitForm(formName) {
+      // let formData = new FormData();
+      // formData.append("id", 1060);
+      // let url = 'http://www.pintasty.cn/home/homedynamic';
+      // let headers = '';
+      // HTTPUtil.post(url, formData, headers).then((json) => {
+      //   //处理 请求结果  
+      // }, (json) => {
+      //   //TODO 处理请求fail     
+      // })
+      this.$refs[formName].validate((valid) => {
+        if (valid) {
+          alert('submit!');
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    }
   }
 }

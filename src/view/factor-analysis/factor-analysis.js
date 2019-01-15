@@ -65,6 +65,17 @@ export const factorAnalysis = {
   },
   methods: {
     searchStudent() {
+      let formData = new FormData();
+      formData.append("id", 1060);
+      let url = 'http://www.pintasty.cn/home/homedynamic';
+      let headers = '';
+      HTTPUtil.post(url, formData, headers).then((json) => {
+        //处理 请求结果 
+        console.log(json) 
+      }, (json) => {
+        console.log(json)
+        //TODO 处理请求fail     
+      })
       console.log("dsa")
       // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },
