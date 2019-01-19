@@ -9,9 +9,7 @@ axios.defaults.baseURL ='';
 //http request 拦截器
 axios.interceptors.request.use(
   config => {
-    const token = window.localStorage.username
-    // getCookie('session');
-    // window.localStorage.username;//注意使用的时候需要引入cookie方法，推荐js-cookie
+    const token = window.localStorage.username;//注意使用的时候需要引入cookie方法，推荐js-cookie
     config.data = JSON.stringify(config.data);
     config.headers = {
       'Content-Type':'application/json',

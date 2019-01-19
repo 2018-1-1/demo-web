@@ -25,8 +25,8 @@
       return {
         checked: true,
         ruleForm: {
-          pass: '',
-          number: '',
+          pass: null,
+          number: null,
           // code: ''
         },
         rules: {
@@ -36,7 +36,7 @@
               trigger: 'change'
             },
             {
-              min: 6,
+              min: 3,
               max: 16,
               message: '长度在 6 到 16 个字符',
               trigger: 'change'
@@ -57,15 +57,21 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            let param={
-              studentId:this.ruleForm.number,
-              password:this.ruleForm.pass
+            let params = {
+              studentId: this.ruleForm.number,
+              password: this.ruleForm.pass
             }
-
-           this.post('/api/user/login',param).then((res)=>{
-             console.log(res)
-           })
-            console.log("登录成功！")
+            this.post('/api/user/login', params).then((res) => {
+              console.log(res.data)
+              var storage = window.localStorage
+              // storage['username']=res.data.token
+              storage.setItem("username", res.data.token.token)
+              storage.setItem('userId', res.data.userId)
+              storage.setItem('roleId', res.data.roleId)
+              this.$router.push({
+                  path:"/home"
+                })
+            })
           } else {
             console.log('error submit!!');
             return false;

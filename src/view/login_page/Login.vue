@@ -29,15 +29,16 @@ export default {
       {
         name: '学生登陆',
         toggleTab: 'StudentLogin'
-      },
-      {
-        name: '导师登陆',
-        toggleTab: 'TeacherLogin'
-      },
-      {
-        name: '管理老师',
-        toggleTab: 'ManageLogin'
       }
+      // ,
+      // {
+      //   name: '导师登陆',
+      //   toggleTab: 'TeacherLogin'
+      // },
+      // {
+      //   name: '管理老师',
+      //   toggleTab: 'ManageLogin'
+      // }
       ]
     }
   },

@@ -8,6 +8,7 @@ import degree from '../view/schemas-microsoft-com/degree.vue'
 import entryAgreement from '../view/entry-agreement/entry-agreement.vue'
 import Login from '../view/login_page/Login.vue'
 import talentAnalysis from '../view/talent-analysis/talent-analysis.vue'
+import questionManage from '../view/question-manage/question-manage.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -42,6 +43,10 @@ export default new Router({
       },{
         path:'/talentAnalysis',
         component:talentAnalysis
+      },{
+        path:'/questionManage',
+        name:'问卷管理',
+        component:questionManage
       }]
     }
   ]

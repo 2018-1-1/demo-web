@@ -35,7 +35,7 @@
                 <el-button style="width:150px">修改密码</el-button>
               </el-col>
               <el-col :span="8">
-                <el-button style="width:150px">退出</el-button>
+                <el-button style="width:150px" @click="exit">退出</el-button>
               </el-col>
             </el-row>
           </el-dialog>

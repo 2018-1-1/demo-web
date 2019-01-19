@@ -11,7 +11,7 @@
         <el-row>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">姓名：</span>{{}}
+              <span class="fontStyle">姓名：</span>{{username}}
             </div>
           </el-col>
           <el-col :span="4">
@@ -20,12 +20,13 @@
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">角色：</span>{{}}
+              <span class="fontStyle">角色：</span>{{role}}
             </div>
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">班级：</span>{{}}
+              <span class="fontStyle">学号：</span>
+              <!-- {{class}} -->
             </div>
           </el-col>
           <el-col :span="4">
@@ -34,12 +35,14 @@
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">手机号：</span>{{}}
+              <span class="fontStyle">班级：</span>
+              <!-- {{tel}} -->
             </div>
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">班级：</span>{{}}
+              <span class="fontStyle">性别：</span>
+              <!-- {{sex}} -->
             </div>
           </el-col>
           <el-col :span="4">
@@ -48,7 +51,8 @@
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">手机号：</span>{{}}
+              <!-- <span class="fontStyle">手机号：</span>
+              {{}} -->
             </div>
           </el-col>
         </el-row>
