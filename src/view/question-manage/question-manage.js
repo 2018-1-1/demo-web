@@ -10,11 +10,9 @@ export const questionManage = {
   },
   created() {
     this.getQuesList()
+    this.getQuestionnaireRecord()
   },
   methods: {
-    handleClick(row) {
-      console.log(row);
-    },
     getQuesList(){
         this.get('/api/questionnaire/findAllQuestionnaire').then(res=>{
             this.tableData0=res.data
@@ -32,6 +30,7 @@ export const questionManage = {
                 type: 'success',
                 duration: 1000
               })
+              this.getQuestionnaireRecord()
         }).catch((res)=>{
             Message({
                 showClose: true,
@@ -49,6 +48,25 @@ export const questionManage = {
                 id: row.id
               }
           })
+    },
+    getQuestionnaireRecord(){
+      this.get('/api/questionnaire/findAllQuestionnaireIssueByUserId',{userId:localStorage.getItem('userId')}).then(res=>{
+        this.tableData1=res.data.reverse()
+      })
+    },
+    deleteQuestionnaireRecord(row){
+      this.post('/api/questionnaire/deleteQuestionnaireIssueById',{id:JSON.stringify(row.id)}).then(()=>{
+        Message({
+          showClose: true,
+          message: '删除成功',
+          type: 'success',
+          duration: 1000
+        })
+        this.getQuestionnaireRecord()
+      })
+    },
+    answerQuestionnaireRecord(row){
+      
     }
   }
 }

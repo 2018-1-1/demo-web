@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form :model="questionnaire" :rules="rules" ref="questionnaire" label-width="700px">
+    <el-form :model="questionnaire" ref="questionnaire" label-width="700px">
       <el-card>
         <h3 style="margin-left:-75px">{{questionnaire.list[0].selectQuestion.questionnaireByQuestionnaireId.name}}</h3>
         <el-form-item v-for="(item,key) in questionnaire.list" :key="key" :label="item.selectQuestion.questionBankByQuestionBankId.problemDescription">
@@ -12,9 +12,6 @@
           <el-checkbox-group v-if="item.selectQuestion.questionBankByQuestionBankId.questionTypeByQuestionTypeId.type=='checkbox'">
             <el-checkbox v-for="(it,answerKey) in item.questionAnswers" :key="answerKey" :label="it.answerValue" style="width:50px;margin-left:50px;float:left"></el-checkbox>
           </el-checkbox-group>
-        </el-form-item>
-        <el-form-item style="margin-left:-780px">
-          <el-button type="primary" @click="submitForm('questionnaire')" style="width:200px">立即提交</el-button>
         </el-form-item>
       </el-card>
     </el-form>

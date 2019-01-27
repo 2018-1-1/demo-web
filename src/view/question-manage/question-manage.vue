@@ -13,15 +13,29 @@
     </el-table>
     <span><h3>发布记录</h3></span>
     <el-table stripe :data="tableData1" height="300" border style="width: 100%;margin-top:1%">
-      <el-table-column prop="date" label="发布日期" width="150">
+      <el-table-column prop="issueTime" label="发布日期" width="250">
       </el-table-column>
-      <el-table-column prop="name" label="量表名称" width="500">
+      <el-table-column prop="questionnaireByQuestionnaireId.name" label="量表名称">
       </el-table-column>
-      <el-table-column prop="address" label="发布人">
+      <el-table-column prop="userByUserId.username" width="120" label="发布人">
       </el-table-column>
       <el-table-column fixed="right" label="操作" width="60">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
+          <el-button @click="deleteQuestionnaireRecord(scope.row)" type="text" size="small">删除</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
+    <span><h3>答题记录</h3></span>
+    <el-table stripe :data="tableData2" height="300" border style="width: 100%;margin-top:1%">
+      <el-table-column prop="issueTime" label="发布日期" width="250">
+      </el-table-column>
+      <el-table-column prop="questionnaireByQuestionnaireId.name" label="量表名称">
+      </el-table-column>
+      <el-table-column prop="userByUserId.username" width="120" label="发布人">
+      </el-table-column>
+      <el-table-column fixed="right" label="操作" width="60">
+        <template slot-scope="scope">
+          <el-button @click="answerQuestionnaireRecord(scope.row)" type="text" size="small">答题</el-button>
         </template>
       </el-table-column>
     </el-table>

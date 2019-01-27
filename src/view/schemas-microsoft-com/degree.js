@@ -91,6 +91,9 @@ export const degree = {
         // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },
     handleClick(row) {
+        this.$router.push({
+          path:'/userInfo'
+        })
         console.log(row);
       }
   },
