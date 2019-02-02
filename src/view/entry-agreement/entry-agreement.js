@@ -9,7 +9,7 @@ export const entryAgreement = {
       value: '',
       userInfoList: [],
       file: "",
-      test: "daksjnd"
+      studentGrande:[]
     }
   },
   methods: {
@@ -49,7 +49,7 @@ export const entryAgreement = {
             _this.userInfoList = outdata
           }
           if (flag == 1) {
-            console.log("chengji1")
+            _this.userInfoList=outdata
           }
           // TODO 根据flag来判断传入的学生信息还是成绩
         }
@@ -61,11 +61,9 @@ export const entryAgreement = {
         reader.readAsBinaryString(f)
       }
     },
-    getUserInfoList(arr) {
-      console.log(arr)
-    },
     getClassList() {
       this.get('/api/find/grades').then(res => {
+        console.log(res)
         this.options = JSON.parse(JSON.stringify(res).replace(/id/g, "value"))
         this.options = JSON.parse(JSON.stringify(this.options).replace(/grade/g, "label"))
         this.options.shift()

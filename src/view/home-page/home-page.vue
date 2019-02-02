@@ -2,7 +2,7 @@
   <div>
     <el-container>
       <el-aside width="200px">
-        <el-menu default-active="/home" router class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose"
+        <el-menu default-active="/home" router class="el-menu-vertical-demo"
           background-color="#353d47" text-color="#fff" active-text-color="#ffd04b" style="height:100%">
           <el-menu-item index="/home" style="background:#22a7f0">
             <i class="el-icon-menu" style="color:white"></i>

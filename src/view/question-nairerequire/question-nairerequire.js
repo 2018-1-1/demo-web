@@ -13,7 +13,6 @@ export const questionNairerequire = {
       let param={
         questionnaireId:JSON.stringify(this.$router.history.router.currentRoute.query.id)
       }
-      console.log(param)
       this.get('/api/questionnaire/findAllQuestionsByQuestionnaireId',param).then(res=>{
         this.questionnaire.list=res.data
       })

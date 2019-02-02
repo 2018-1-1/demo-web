@@ -5,12 +5,15 @@ export const questionManage = {
   data() {
     return {
       tableData0: [],
-      tableData1: []
+      tableData1: [],
+      tableData2:[],
+      userId:localStorage.getItem('userId')
     }
   },
   created() {
     this.getQuesList()
     this.getQuestionnaireRecord()
+    this.getStudentanswerList()
   },
   methods: {
     getQuesList(){
@@ -39,7 +42,6 @@ export const questionManage = {
                 duration: 1000
               })
         })
-        // this.get()
     },
     getQuestionnaireInfo(row){
         this.$router.push({
@@ -65,8 +67,18 @@ export const questionManage = {
         this.getQuestionnaireRecord()
       })
     },
+    getStudentanswerList(){
+      this.get('/api/questionnaire/findQuestionnaireCanFill',{userId:localStorage.getItem('userId')}).then(res=>{
+       this.tableData2=res.data
+      })
+    },
     answerQuestionnaireRecord(row){
-      
+      this.$router.push({
+        path:'/studentAnswers',
+        query:{
+          id:row.questionnaireByQuestionnaireId.id
+        }
+      })
     }
   }
 }
