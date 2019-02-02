@@ -27,7 +27,7 @@ export default {
       num: 0,
       tabs: [
       {
-        name: '学生登陆',
+        name: '登陆',
         toggleTab: 'StudentLogin'
       }
       // ,

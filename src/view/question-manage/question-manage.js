@@ -73,10 +73,13 @@ export const questionManage = {
       })
     },
     answerQuestionnaireRecord(row){
+      window.localStorage.setItem('questionIndex', 0)
+      window.localStorage.setItem('questionTotal', 0)
       this.$router.push({
         path:'/studentAnswers',
         query:{
-          id:row.questionnaireByQuestionnaireId.id
+          id:row.questionnaireByQuestionnaireId.id,
+          questionId:row.id
         }
       })
     }

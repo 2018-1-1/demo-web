@@ -18,7 +18,7 @@ export const homePage = {
       localStorage.removeItem('roleId')
       location.reload()
       this.$router.push({
-        path: "/login"
+        path: "/"
       })
     },
     popover() {
@@ -86,10 +86,6 @@ export const homePage = {
           path: '/questionManage',
           icon: "fa fa-braille"
         },{
-          name: '人才培养计划达成度',
-          path: '/degree',
-          icon: "fa fa-check-square-o"
-        }, {
           name: '个人信息',
           path: '/userInfo',
           icon: "fa fa-address-card"
