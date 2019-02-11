@@ -2,8 +2,8 @@
   <div>
     <el-container>
       <el-aside width="200px">
-        <el-menu default-active="/home" router class="el-menu-vertical-demo"
-          background-color="#353d47" text-color="#fff" active-text-color="#ffd04b" style="height:100%">
+        <el-menu default-active="/home" router class="el-menu-vertical-demo" background-color="#353d47" text-color="#fff"
+          active-text-color="#ffd04b" style="height:100%">
           <el-menu-item index="/home" style="background:#22a7f0">
             <i class="el-icon-menu" style="color:white"></i>
             <span>人才培养管理系统</span>
@@ -29,15 +29,32 @@
             <img src="../../assets/tou.png" style="width:450px;margin-left:-20px;margin-top:-10px">
             <el-row style="margin-left:-20px;width:450px;margin-top:-3px;margin-bottom:-30px;">
               <el-col :span="8">
-                <el-button style="width:150px">个人信息</el-button>
+                <el-button style="width:150px" @click="userInfo">个人信息</el-button>
               </el-col>
               <el-col :span="8">
-                <el-button style="width:150px">修改密码</el-button>
+                <el-button style="width:150px" @click="modifyPwd">修改密码</el-button>
               </el-col>
               <el-col :span="8">
                 <el-button style="width:150px" @click="exit">退出</el-button>
               </el-col>
             </el-row>
+          </el-dialog>
+          <el-dialog title="修改密码" width="450px" :visible.sync="dialogFormVisible">
+            <el-form :model="form">
+              <el-form-item label="原始密码" >
+                <el-input v-model="form.pwd" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="修改后的密码">
+                <el-input v-model="form.newPwd" autocomplete="off"></el-input>
+              </el-form-item>
+              <el-form-item label="再次输入修改后的密码">
+                <el-input v-model="form.newPwdAgain" autocomplete="off"></el-input>                
+              </el-form-item>
+            </el-form>
+            <div slot="footer" class="dialog-footer">
+              <el-button @click="dialogFormVisible = false">取 消</el-button>
+              <el-button type="primary" @click="modifyPwdAction">确 定</el-button>
+            </div>
           </el-dialog>
         </el-header>
         <el-main>
@@ -56,7 +73,7 @@
         </el-footer>
       </el-container>
     </el-container>
-    
+
   </div>
 </template>
 <script>
@@ -68,7 +85,6 @@
   }
 </script>
 <style>
-
   .el-header,
   .el-footer {
     text-align: center;
@@ -96,20 +112,23 @@
 
   .footer {
     width: 1725px;
-    margin-left:-30px;
+    margin-left: -30px;
     height: 100px;
     background: black;
     padding-top: 50px
   }
+
   .footer a {
     color: white;
     text-decoration: none;
   }
-.footer img {
+
+  .footer img {
     width: 25px;
     height: 25px;
     margin-right: 10px
   }
+
   .footer span {
     margin-right: 20px;
   }

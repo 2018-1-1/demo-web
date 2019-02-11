@@ -63,7 +63,6 @@ export const entryAgreement = {
     },
     getClassList() {
       this.get('/api/find/grades').then(res => {
-        console.log(res)
         this.options = JSON.parse(JSON.stringify(res).replace(/id/g, "value"))
         this.options = JSON.parse(JSON.stringify(this.options).replace(/grade/g, "label"))
         this.options.shift()

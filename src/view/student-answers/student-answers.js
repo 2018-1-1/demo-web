@@ -1,6 +1,6 @@
 import {
-    Message
-  } from 'element-ui'
+  Message
+} from 'element-ui'
 export const studentAnswers = {
   data() {
     return {
@@ -18,7 +18,7 @@ export const studentAnswers = {
       checkBox: [],
       percentage: 50,
       answerList: {
-          list:[]
+        answerList: []
       }
     }
   },
@@ -37,9 +37,9 @@ export const studentAnswers = {
         this.questionList = this.reStructQuestion(res.data)
         this.question = this.questionList[0]
         window.localStorage.setItem('questionTotal', res.data.length)
-        this.answerList.name = this.questionName
-        this.answerList.questionId = this.$route.query.questionId
-        this.answerList.userId = localStorage.getItem('userId')
+        this.answerList.questionnaireName = this.questionName
+        this.answerList.questionnaireIssueId = this.$route.query.questionId
+        this.answerList.userId = parseInt(localStorage.getItem('userId'))
       })
     },
     reStructQuestion(list) {
@@ -56,38 +56,58 @@ export const studentAnswers = {
       return reList
     },
     nextQuestion() {
-        console.log(parseInt(localStorage.getItem('questionIndex')))
-        console.log(parseInt(localStorage.getItem('questionTotal')))
-      if (parseInt(localStorage.getItem('questionIndex')) + 1< parseInt(localStorage.getItem('questionTotal'))) {
-          let answer={
-              id:this.question.id,
-              answer:this.discriminantType()
-            }
+      if (parseInt(localStorage.getItem('questionIndex')) + 2 < parseInt(localStorage.getItem('questionTotal'))) {
+        this.getNextQuestionInfo()
+      } else if ((parseInt(localStorage.getItem('questionIndex')) + 2 == parseInt(localStorage.getItem('questionTotal')))) {
+        this.nextFlag = false
+        this.getNextQuestionInfo()
+      } else {
+        if (this.discriminantType()) {
+          let answer = {
+            id: this.question.id,
+            answer: this.discriminantType()
+          }
+          this.clearAnswerHis()
+          this.answerList.answerList.push(answer)
+          this.submitAnswer()
+        }
+      }
+    },
+    submitAnswer() {
+      console.log(this.answerList)
+      this.post('/api/answerRecord/saveAnswerRecord', this.answerList).then(res => {
+        console.log(res)
+        this.$router.push({
+          path: '/questionManage'
+        })
+        Message({
+          showClose: true,
+          message: "答题结束",
+          type: 'success',
+          duration: 1000
+        })
+      })
+    },
+    getNextQuestionInfo() {
+      if (this.discriminantType()) {
+        let answer = {
+          id: this.question.id,
+          answer: this.discriminantType()
+        }
         this.clearAnswerHis()
-        this.answerList.list.push(answer)
+        this.answerList.answerList.push(answer)
         window.localStorage.setItem('questionIndex',
           parseInt(localStorage.getItem('questionIndex')) + 1)
         this.question = this.questionList[localStorage.getItem('questionIndex')]
       }
-      else {
-        this.nextFlag = false
-        let answer={
-            id:this.question.id,
-            answer:this.discriminantType()
-          }
-      this.clearAnswerHis()
-      this.answerList.list.push(answer)
-      console.log(this.answerList)
-      }
     },
     discriminantType() {
       if (this.choice != null) {
+        console.log(this.choice)
         return this.choice
-      }
-      else if (this.text != null) {
+      } else if (this.text != null) {
         return this.text
-      }
-      else if (this.checkBox.length > 0) {
+      } else if (this.checkBox.length > 0) {
         return this.checkBox
       } else {
         Message({
@@ -96,7 +116,7 @@ export const studentAnswers = {
           type: 'error',
           duration: 1000
         })
-        return 
+        return false
       }
     },
     clearAnswerHis() {

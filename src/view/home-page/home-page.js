@@ -5,12 +5,56 @@ export const homePage = {
   data() {
     return {
       // isCollapse:false
+      dialogFormVisible:false,
       userId: localStorage.getItem('userId'),
       centerDialogVisible: false,
-      menus: []
+      menus: [],
+      // TODO 对于密码进行限制，只能为数字和字母
+      form:{
+        pwd:null,
+        newPwd:null,
+        newPwdAgain:null
+      }
     }
   },
   methods: {
+    modifyPwdAction(){
+      if(this.form.pwd != null && this.form.newPwd === this.form.newPwdAgain && this.form.newPwd.length>=6){
+        this.dialogFormVisible=false
+        let body={
+          userId:localStorage.getItem('userId'),
+          oldPassword:this.form.pwd,
+          newPassword:this.form.newPwd
+        }
+        this.post('/api/user/rePassword',body).then(res=>{
+          this.dialogFormVisible=false
+          Message({
+            showClose: true,
+            message: res.msg,
+            type: 'success',
+            duration: 1000
+          })
+        }).catch(error=>{
+          console.log(error)
+        })
+      }else{
+        Message({
+          showClose: true,
+          message: "新密码不得少于6位!或两个不相等",
+          type: 'error',
+          duration: 1000
+        })
+      }
+    },
+    modifyPwd(){
+      this.dialogFormVisible=true
+    },
+    userInfo(){
+      this.$router.push({
+        path:'/userInfo'
+      })
+      this.centerDialogVisible=false
+    },
     exit() {
       localStorage.removeItem('userId')
       localStorage.removeItem('jobId')
