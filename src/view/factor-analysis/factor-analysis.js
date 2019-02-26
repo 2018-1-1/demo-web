@@ -2,47 +2,7 @@ export const factorAnalysis = {
   data() {
     return {
       currentPage: 5,
-      tableData3: [{
-        date: '2016-05-03',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-02',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-01',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-08',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-06',
-        name: '王小虎',
-        address: '上海市普陀区金沙江路 1518 弄'
-      }],
+      tableData3: [],
       input21: '',
       options: [{
         value: '选项1',
@@ -63,30 +23,42 @@ export const factorAnalysis = {
       value: ''
     }
   },
+  created(){
+    this.searchFactoryInfo()
+  },
   methods: {
-    searchStudent() {
-      let formData = new FormData();
-      formData.append("id", 1060);
-      let url = 'http://www.pintasty.cn/home/homedynamic';
-      let headers = '';
-      HTTPUtil.post(url, formData, headers).then((json) => {
-        //处理 请求结果 
-        console.log(json) 
-      }, (json) => {
-        console.log(json)
-        //TODO 处理请求fail     
+    searchFactoryInfo() {
+      let url='/api/questionnaire/findAllQuestionnaireIssueAndFillNumberByUserId'
+      let userId=localStorage.getItem('userId')
+      this.get(url,{userId:userId}).then(res=>{
+        this.tableData3=this.tableData3=this.reStructeFactoryInfo(res.data)
       })
-      console.log("dsa")
-      // 要进行过滤，必须改老师专业下的学生信息才可以显示
+    },
+    reStructeFactoryInfo(list){
+      let obj=[]
+      list.forEach((item,index)=>{
+        obj[index]=new Object()
+        obj[index].date=item.questionnaireIssue.issueTime
+        obj[index].name=item.questionnaireIssue.questionnaireByQuestionnaireId.name
+        obj[index].userName=item.questionnaireIssue.userByUserId.username
+        obj[index].number=item.fillNumber
+        obj[index].id=item.questionnaireIssue.id
+      })
+      return obj
     },
     handleClick(row) {
-      console.log(row);
+      this.$router.push({
+        path:'/factory-page',
+        query:{
+          id:row.id
+        }
+      })
     },
-    handleSizeChange(val) {
-      console.log(`每页 ${val} 条`);
-    },
-    handleCurrentChange(val) {
-      console.log(`当前页: ${val}`);
-    }
+    // handleSizeChange(val) {
+    //   console.log(`每页 ${val} 条`);
+    // },
+    // handleCurrentChange(val) {
+    //   console.log(`当前页: ${val}`);
+    // }
   }
 }

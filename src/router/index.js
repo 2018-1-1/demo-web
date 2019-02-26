@@ -10,6 +10,7 @@ import Login from '../view/login_page/Login.vue'
 import talentAnalysis from '../view/talent-analysis/talent-analysis.vue'
 import questionManage from '../view/question-manage/question-manage.vue'
 import studentAnswers from '../view/student-answers/student-answers.vue'
+import factoryPage from '../view/factory-page/factory-page.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,9 @@ export default new Router({
       }, {
         path: '/studentAnswers',
         component: studentAnswers
+      }, {
+        path:'/factory-page',
+        component:factoryPage
       }]
     }
   ]
