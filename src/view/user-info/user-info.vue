@@ -58,13 +58,13 @@
         </el-row>
       </div>
     </el-card>
-    <el-card class="box-card" style="position:relative;left:520px;top:-430px;width:1100px">
+    <el-card class="box-card" style="position:relative;left:520px;top:-430px;width:62%">
       <div slot="header" class="clearfix" style="float:left;margin-top:-5px">
         <i class="fa fa-list-alt" style="color:#22a7f0"></i><span style="dispaly:inline-block;margin-left:10px">成绩详情</span>
       </div>
       <div>
         <el-table :data="tableData" stripe style="width: 100%">
-          <el-table-column prop="date" label="课堂名称" width="200">
+          <el-table-column prop="date" label="学科名称" width="200">
           </el-table-column>
           <el-table-column prop="name" label="学时">
           </el-table-column>

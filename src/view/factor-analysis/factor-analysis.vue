@@ -10,16 +10,17 @@
     </el-card>
     <!-- 学生信息 -->
     <el-table stripe :data="tableData3" border style="width: 100%;margin-top:1%">
-      <el-table-column prop="date" label="日期" width="180">
+      <el-table-column prop="date" label="发布时间" width="120">
       </el-table-column>
-      <el-table-column prop="name" label="姓名" width="180">
+      <el-table-column prop="name" label="量表名称">
       </el-table-column>
-      <el-table-column prop="address" label="地址">
+      <el-table-column prop="userName" label="量表发布人" width="180">
       </el-table-column>
-      <el-table-column fixed="right" label="操作" width="180">
+      <el-table-column prop="address" label="量表已填人次" width="120">
+      </el-table-column>
+      <el-table-column fixed="right" label="操作" width="90">
         <template slot-scope="scope">
-          <el-button @click="handleClick(scope.row)" type="text" size="small">个人信息</el-button>
-          <el-button @click="handleClick(scope.row)" type="text" size="small">人才培养计划</el-button>
+          <el-button @click="handleClick(scope.row)" type="text" size="small">因子分析</el-button>
         </template>
       </el-table-column>
     </el-table>
