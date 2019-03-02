@@ -13,7 +13,7 @@ export const entryTeacherInfo = {
         callback(new Error("请输入账号"));
       } else {
         if (this.ruleForm2.姓名 !== "") {
-          this.$refs.ruleForm2.validateField("姓名");
+          // this.$refs.ruleForm2.validateField("账号");
         }
         callback();
       }
@@ -58,7 +58,7 @@ export const entryTeacherInfo = {
             .then(res => {
               Message({
                 showClose: true,
-                message: "教师信息录入太长",
+                message: "教师信息录入成功",
                 type: "success",
                 duration: 1000
               });

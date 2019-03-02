@@ -1,7 +1,8 @@
 <template>
   <div>
-    <el-card style="height:593px">
+    <el-card style="height:593px;text-align: center;">
       <h3 style="margin-left:-75px">学生信息录入</h3>
+      <span style="display:inline-block;color:red;float:right;margin-right:10%">只能同时录入一种信息</span>
       <div style="margin-left:12%;margin-top:5%;">
         <el-select v-model="value" clearable placeholder="请选择班级" style="display:inline-block;float:left">
           <el-option v-for="(item,key) in options" :key="key" :label="item.label" :value="item.value">

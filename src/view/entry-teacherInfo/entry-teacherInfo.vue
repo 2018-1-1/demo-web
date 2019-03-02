@@ -22,7 +22,7 @@
           <el-button type="primary" @click="submitForm('ruleForm2')">提交</el-button>
         </el-form-item>
       </el-form>
-       <div style="margin-right:10%">
+       <div style="margin-left:40%">
         <el-transfer v-model="value1" :data="data"></el-transfer>
       </div>
     </el-card>

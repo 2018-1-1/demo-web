@@ -2,7 +2,17 @@ export const questionNairerequire = {
   data() {
     return {
       questionnaire: {
-        list: []
+        list: [{
+          selectQuestion:{
+            questionnaireByQuestionnaireId:{
+              name:null
+            },
+            questionBankByQuestionBankId:{
+              problemDescription:null,
+              questionTypeByQuestionTypeId:'text'
+            }
+          }
+        }]
       },
     }
   },

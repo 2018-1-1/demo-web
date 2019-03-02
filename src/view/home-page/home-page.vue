@@ -90,9 +90,9 @@
     text-align: center;
   }
 
-  .el-main {
+  /* .el-main {
     text-align: center;
-  }
+  } */
 
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     position: absolute;

@@ -89,18 +89,10 @@ export const homePage = {
           path: '/questionManage',
           icon: "fa fa-braille"
         }, {
-          name: '因子分析',
-          path: '/factorAnalysis',
-          icon: "fa fa-bar-chart"
-        }, {
           name: '教师信息录入',
           path: '/entry-teacherInfo',
           icon: "fa fa-file-text-o"
-        }, {
-          name: '人才培养计划达成度',
-          path: '/degree',
-          icon: "fa fa-check-square-o"
-        }, {
+        },  {
           name: '个人信息',
           path: '/userInfo',
           icon: "fa fa-address-card"
