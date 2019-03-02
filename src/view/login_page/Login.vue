@@ -16,11 +16,9 @@
 
 <script>
 import StudentLogin from './components/StudentLogin'
-import TeacherLogin from './components/TeacherLogin'
-import ManageLogin from './components/ManageLogin'
 export default {
   name: "Login",
-  components: {StudentLogin,TeacherLogin,ManageLogin},
+  components: {StudentLogin},
   data() {
     return {
       currentTab: 'StudentLogin',

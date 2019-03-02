@@ -58,7 +58,7 @@ export const entryTeacherInfo = {
             .then(res => {
               Message({
                 showClose: true,
-                message: "老师信息录入成功",
+                message: res.msg,
                 type: "success",
                 duration: 1000
               });
@@ -67,13 +67,12 @@ export const entryTeacherInfo = {
             .catch(e => {
               Message({
                 showClose: true,
-                message: res.msg,
+                message: "系统发生错误",
                 type: "error",
                 duration: 1000
               });
             });
         } else {
-          console.log("error submit!!");
           return false;
         }
       });

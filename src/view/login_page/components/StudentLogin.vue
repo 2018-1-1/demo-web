@@ -19,6 +19,7 @@
 </template>
 
 <script>
+import { Message } from "element-ui";
   export default {
     name: "StudentLogin",
     data() {
@@ -70,9 +71,15 @@
               this.$router.push({
                   path:"/home"
                 })
+            }).catch(e=>{
+              Message({
+                showClose: true,
+                message: "账号或密码错误！",
+                type: "error",
+                duration: 1000
+              });
             })
           } else {
-            console.log('error submit!!');
             return false;
           }
         });

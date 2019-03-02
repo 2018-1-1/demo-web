@@ -47,7 +47,7 @@ export const userInfo = {
         this.startDate=res.data.startDate
         this.tel=res.data.tel,
         this.stuNumber=res.data.studentId
-        console.log(res.data)
+
         this.getCourseGradeById(res.data.studentId)
       })
     },
