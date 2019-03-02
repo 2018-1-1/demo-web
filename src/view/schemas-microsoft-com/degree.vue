@@ -16,7 +16,7 @@
       </el-table-column>
       <el-table-column prop="username" label="姓名" width="180">
       </el-table-column>
-      <el-table-column prop="address" label="班级">
+      <el-table-column prop="grade.grade" label="班级">
       </el-table-column>
       <el-table-column prop="startDate" label="入学年份">
       </el-table-column>

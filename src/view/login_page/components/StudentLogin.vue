@@ -48,10 +48,7 @@ import { Message } from "element-ui";
             required: true,
             message: '请输入学号',
             trigger: 'change'
-          }],
-          // code: [
-          //   { required: true, message: '请输入验证码', trigger: 'change' }
-          // ]
+          }]
         }
       }
     },

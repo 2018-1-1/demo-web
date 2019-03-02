@@ -3,23 +3,9 @@ export const degree = {
     return {
       tableData3: [],
       input21: '',
-      options: [{
-        value: '选项1',
-        label: '黄金糕'
-      }, {
-        value: '选项2',
-        label: '双皮奶'
-      }, {
-        value: '选项3',
-        label: '蚵仔煎'
-      }, {
-        value: '选项4',
-        label: '龙须面'
-      }, {
-        value: '选项5',
-        label: '北京烤鸭'
-      }],
-      value: ''
+      options: [],
+      value: '',
+      studentInfo:[]
     }
   },
   created() {
@@ -28,7 +14,22 @@ export const degree = {
   methods: {
     searchStudent(){
         this.get('/api/user/teacherFindClass',{teacherId:localStorage.getItem('teacherNum')}).then(res=>{
-          this.tableData3=res.data
+          // this.tableData3=res.data
+          let arr=[]
+          res.data.forEach(item=>{
+            item.students.forEach(it=>{
+              it.grade=item.grade
+            })
+            arr.push(item.students)
+          })
+          let arrAdd=[]
+          arr.forEach(item=>{
+            item.forEach(it=>{
+              arrAdd.push(it)
+            })
+          })
+          this.tableData3=arrAdd
+      
         })
         // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },

@@ -94,7 +94,7 @@ export const entryAgreement = {
               .catch(e => {
                 Message({
                   showClose: true,
-                  message: res.msg,
+                  message: e,
                   type: "warning",
                   duration: 1000
                 });
@@ -124,7 +124,7 @@ export const entryAgreement = {
               .catch(e => {
                 Message({
                   showClose: true,
-                  message: res.msg,
+                  message: "系统错误",
                   type: "warning",
                   duration: 1000
                 });
