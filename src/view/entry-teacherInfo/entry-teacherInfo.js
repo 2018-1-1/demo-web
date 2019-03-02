@@ -58,7 +58,7 @@ export const entryTeacherInfo = {
             .then(res => {
               Message({
                 showClose: true,
-                message: res.msg,
+                message: "教师信息录入太长",
                 type: "success",
                 duration: 1000
               });

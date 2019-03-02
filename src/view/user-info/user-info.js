@@ -38,6 +38,7 @@ export const userInfo = {
   methods: {
     isHaveStudentId(){
       this.studentId=this.$route.query.userId
+      // console.log(this.studentId)
       if(this.$route.query.userId != null){
         this.getPersonalInfo(1)
         this.getCourseGradeById(1)
@@ -56,7 +57,6 @@ export const userInfo = {
       let param = {
         userId: userId
       }
-      console.log(param)
       this.get('/api/user/find', param).then(res => {
         this.username=res.data.username,
         this.role=res.data.roleByRoleId.role
@@ -72,7 +72,7 @@ export const userInfo = {
       if(flag){
         userId = this.studentId
       }else{
-        userId = parseInt(localStorage.getItem('teacherNum'))
+        userId = parseInt(localStorage.getItem('userId'))
       }
       let param = {
         studentId: userId

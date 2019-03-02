@@ -9,7 +9,10 @@
           <el-col :span="16"><span style="display:inline-block;float:left;margin-left:20px">{{question.name}} </span></el-col>
         </el-row>
         <div style="margin-top:30px">
-          <el-input v-if="question.type=='text'" type="textarea" style="margin-left:180px;width:700px" v-model="text"></el-input>
+          <div v-if="question.type=='text'">
+            <div style="float:right;margin-right:13%;color:red" >最多输入300字</div>
+            <el-input maxlength=300 type="textarea" style="margin-left:180px;width:700px;margin-top:20px" v-model="text"></el-input>
+          </div>
           <el-radio-group v-if="question.type=='radio'" v-model="choice" style="margin-left:-342px">
             <el-radio v-for="(it,answerKey) in question.questionAnswers" :key="answerKey" :label="it.answerKey" style="margin-left:50px;float:left">{{it.answerValue}}
             </el-radio>
