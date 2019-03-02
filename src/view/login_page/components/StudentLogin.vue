@@ -30,6 +30,7 @@ import { Message } from "element-ui";
           number: null,
           // code: ''
         },
+        teacherNum:null,
         rules: {
           pass: [{
               required: true,
@@ -68,6 +69,8 @@ import { Message } from "element-ui";
               storage.setItem("username", res.data.token.token)
               storage.setItem('userId', res.data.userId)
               storage.setItem('roleId', res.data.roleId)
+              this.teacherNum=this.ruleForm.number
+              storage.setItem('teacherNum',this.teacherNum)
               this.$router.push({
                   path:"/home"
                 })

@@ -23,16 +23,21 @@ export const degree = {
     }
   },
   created() {
-
+    this.searchStudent()
   },
   methods: {
     searchStudent(){
-        
+        this.get('/api/user/teacherFindClass',{teacherId:localStorage.getItem('teacherNum')}).then(res=>{
+          this.tableData3=res.data
+        })
         // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },
     handleClick(row) {
         this.$router.push({
-          path:'/userInfo'
+          path:'/userInfo',
+          query:{
+            userId:row.id
+          }
         })
       }
   },

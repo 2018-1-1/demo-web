@@ -12,6 +12,7 @@ export const userInfo = {
       stuNumber: null,
       sex: null,
       startDate:null,
+      studentId:null,
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',
@@ -32,14 +33,30 @@ export const userInfo = {
     }
   },
   created() {
-    this.getPersonalInfo()
+    this.isHaveStudentId()
   },
   methods: {
-    getPersonalInfo() {
-      let userId = parseInt(localStorage.getItem('userId'))
+    isHaveStudentId(){
+      this.studentId=this.$route.query.userId
+      if(this.$route.query.userId != null){
+        this.getPersonalInfo(1)
+        this.getCourseGradeById(1)
+      }else{
+        this.getPersonalInfo(0)
+        this.getCourseGradeById(0)
+      }
+    },
+    getPersonalInfo(flag) {
+      let userId=null
+      if(flag){
+        userId = this.studentId
+      }else{
+        userId = parseInt(localStorage.getItem('userId'))
+      }
       let param = {
         userId: userId
       }
+      console.log(param)
       this.get('/api/user/find', param).then(res => {
         this.username=res.data.username,
         this.role=res.data.roleByRoleId.role
@@ -48,11 +65,19 @@ export const userInfo = {
         this.tel=res.data.tel,
         this.stuNumber=res.data.studentId
 
-        this.getCourseGradeById(res.data.studentId)
       })
     },
-    getCourseGradeById(id){
-      this.get('/api/userCourse/selectCourseByStudentId',{studentId:id}).then(res=>{
+    getCourseGradeById(flag){
+      let userId=null
+      if(flag){
+        userId = this.studentId
+      }else{
+        userId = parseInt(localStorage.getItem('teacherNum'))
+      }
+      let param = {
+        studentId: userId
+      }
+      this.get('/api/userCourse/selectCourseByStudentId',param).then(res=>{
         this.tableData=res.data
       })
     }

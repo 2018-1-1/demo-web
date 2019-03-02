@@ -69,7 +69,6 @@ export const entryAgreement = {
         this.options = JSON.parse(
           JSON.stringify(this.options).replace(/grade/g, "label")
         );
-        this.options.shift();
       });
     },
     submitStudentInfo() {

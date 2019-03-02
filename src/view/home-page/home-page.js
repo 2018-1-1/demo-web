@@ -36,7 +36,7 @@ export const homePage = {
             duration: 1000
           })
         }).catch(error=>{
-          console.log(error)
+          // console.log(error)
         })
       }else{
         Message({
@@ -61,6 +61,8 @@ export const homePage = {
       localStorage.removeItem('jobId')
       localStorage.removeItem('token')
       localStorage.removeItem('roleId')
+      localStorage.removeItem('username')
+      localStorage.removeItem('teacherNum')
       location.reload()
       this.$router.push({
         path: "/"
