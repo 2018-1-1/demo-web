@@ -11,6 +11,7 @@ export const userInfo = {
       tel: null,
       stuNumber: null,
       sex: null,
+      startDate:null,
       tableData: [{
         date: '2016-05-02',
         name: '王小虎',
@@ -41,10 +42,18 @@ export const userInfo = {
       }
       this.get('/api/user/find', param).then(res => {
         this.username=res.data.username,
-        this.role=res.data.roleByRoleId.role,
-        this.class=res.data.class,
+        this.role=res.data.roleByRoleId.role
+        this.sex=res.data.sex == 1?'男':'女'
+        this.startDate=res.data.startDate
         this.tel=res.data.tel,
-        this.stuNumber=res.data.stuNumber
+        this.stuNumber=res.data.studentId
+        console.log(res.data)
+        this.getCourseGradeById(res.data.studentId)
+      })
+    },
+    getCourseGradeById(id){
+      this.get('/api/userCourse/selectCourseByStudentId',{studentId:id}).then(res=>{
+        this.tableData=res.data
       })
     }
   },

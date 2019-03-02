@@ -21,7 +21,7 @@
         <el-button @click="nextQuestion" v-if="nextFlag" type="primary" style="float:right;margin-bottom:50px" plain>下一题</el-button>
         <el-button @click="nextQuestion" v-else type="primary" style="float:right;margin-bottom:50px" plain>完成</el-button>
       </div>
-      <el-progress :text-inside="true" :stroke-width="18" :percentage="percentage"></el-progress>
+      <!-- <el-progress :text-inside="true" :stroke-width="18" :percentage="percentage"></el-progress> -->
     </el-card>
 
   </div>

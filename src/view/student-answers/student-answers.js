@@ -74,9 +74,7 @@ export const studentAnswers = {
       }
     },
     submitAnswer() {
-      console.log(this.answerList)
       this.post('/api/answerRecord/saveAnswerRecord', this.answerList).then(res => {
-        console.log(res)
         this.$router.push({
           path: '/questionManage'
         })
@@ -103,7 +101,6 @@ export const studentAnswers = {
     },
     discriminantType() {
       if (this.choice != null) {
-        console.log(this.choice)
         return this.choice
       } else if (this.text != null) {
         return this.text

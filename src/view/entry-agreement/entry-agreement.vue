@@ -7,7 +7,7 @@
           <el-option v-for="(item,key) in options" :key="key" :label="item.label" :value="item.value">
           </el-option>
         </el-select>
-        <span style="display:inline-block;margin-left:-400px">
+        <span style="display:inline-block;margin-left:-100px">
         <span>学生信息:</span>
         <el-input id="upload" style="width:250px;" type="file" @change="importfxx(this,0)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
         <span>学生成绩:</span>        

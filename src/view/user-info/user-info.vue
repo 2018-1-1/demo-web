@@ -27,6 +27,7 @@
             <div>
               <span class="fontStyle">学号：</span>
               <!-- {{class}} -->
+              {{stuNumber}}
             </div>
           </el-col>
           <el-col :span="4">
@@ -35,14 +36,15 @@
           </el-col>
           <el-col :span="10">
             <div>
-              <span class="fontStyle">班级：</span>
+              <span class="fontStyle">入学年份：</span>
               <!-- {{tel}} -->
+              {{startDate}}
             </div>
           </el-col>
           <el-col :span="10">
             <div>
               <span class="fontStyle">性别：</span>
-              <!-- {{sex}} -->
+              {{sex}}
             </div>
           </el-col>
           <el-col :span="4">
@@ -58,24 +60,25 @@
         </el-row>
       </div>
     </el-card>
-    <el-card class="box-card" style="position:relative;left:520px;top:-430px;width:62%">
+    <el-card class="box-card" style="position:relative;left:520px;top:-430px;width:42%">
       <div slot="header" class="clearfix" style="float:left;margin-top:-5px">
         <i class="fa fa-list-alt" style="color:#22a7f0"></i><span style="dispaly:inline-block;margin-left:10px">成绩详情</span>
       </div>
       <div>
         <el-table :data="tableData" stripe style="width: 100%">
-          <el-table-column prop="date" label="学科名称" width="200">
+          <el-table-column prop="courseName" label="学科名称" width="300">
           </el-table-column>
-          <el-table-column prop="name" label="学时">
+          <el-table-column prop="credit" label="学分">
           </el-table-column>
-          <el-table-column prop="address" label="学分">
+          <el-table-column prop="grade" label="成绩">
           </el-table-column>
+          <!--
           <el-table-column prop="address" label="平时成绩">
           </el-table-column>
           <el-table-column prop="address" label="考试成绩">
           </el-table-column>
           <el-table-column prop="address" label="总评成绩">
-          </el-table-column>
+          </el-table-column> -->
         </el-table>
       </div>
     </el-card>

@@ -11,6 +11,7 @@ import talentAnalysis from '../view/talent-analysis/talent-analysis.vue'
 import questionManage from '../view/question-manage/question-manage.vue'
 import studentAnswers from '../view/student-answers/student-answers.vue'
 import factoryPage from '../view/factory-page/factory-page.vue'
+import entryTeacherInfo from '../view/entry-teacherInfo/entry-teacherInfo.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -55,6 +56,9 @@ export default new Router({
       }, {
         path:'/factory-page',
         component:factoryPage
+      },{
+        path:'/entry-teacherInfo',
+        component:entryTeacherInfo
       }]
     }
   ]

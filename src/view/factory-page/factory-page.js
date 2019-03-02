@@ -26,7 +26,6 @@ export const factoryPage = {
     },
     getFactoryList(list) {
       let obj = [];
-      console.log(list)
       list.forEach((item, index) => {
         obj[index] = {};
         obj[index].id = item.selectQuestion.questionBankByQuestionBankId.id;

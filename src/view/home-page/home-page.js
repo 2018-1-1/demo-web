@@ -7,6 +7,7 @@ export const homePage = {
       // isCollapse:false
       dialogFormVisible:false,
       userId: localStorage.getItem('userId'),
+      roleId:localStorage.getItem('roleId'),
       centerDialogVisible: false,
       menus: [],
       // TODO 对于密码进行限制，只能为数字和字母
@@ -80,7 +81,29 @@ export const homePage = {
       }
     },
     reStructMenueByRole() {
-      if (this.userId == 1) {
+      if (this.roleId == 1) {
+        this.menus = [{
+          name: '问卷管理',
+          path: '/questionManage',
+          icon: "fa fa-braille"
+        }, {
+          name: '因子分析',
+          path: '/factorAnalysis',
+          icon: "fa fa-bar-chart"
+        }, {
+          name: '教师信息录入',
+          path: '/entry-teacherInfo',
+          icon: "fa fa-file-text-o"
+        }, {
+          name: '人才培养计划达成度',
+          path: '/degree',
+          icon: "fa fa-check-square-o"
+        }, {
+          name: '个人信息',
+          path: '/userInfo',
+          icon: "fa fa-address-card"
+        }]
+      } else if (this.roleId == 2) {
         this.menus = [{
           name: '问卷管理',
           path: '/questionManage',
@@ -102,29 +125,7 @@ export const homePage = {
           path: '/userInfo',
           icon: "fa fa-address-card"
         }]
-      } else if (this.userId == 2) {
-        this.menus = [{
-          name: '问卷管理',
-          path: '/questionManage',
-          icon: "fa fa-braille"
-        }, {
-          name: '因子分析',
-          path: '/factorAnalysis',
-          icon: "fa fa-bar-chart"
-        }, {
-          name: '个人信息录入',
-          path: '/entryAgreement',
-          icon: "fa fa-file-text-o"
-        }, {
-          name: '人才培养计划达成度',
-          path: '/degree',
-          icon: "fa fa-check-square-o"
-        }, {
-          name: '个人信息',
-          path: '/userInfo',
-          icon: "fa fa-address-card"
-        }]
-      } else if (this.userId == 3) {
+      } else if (this.roleId == 3) {
         this.menus = [{
           name: '问卷管理',
           path: '/questionManage',

@@ -62,7 +62,6 @@
               password: this.ruleForm.pass
             }
             this.post('/api/user/login', params).then((res) => {
-              console.log(res.data)
               var storage = window.localStorage
               // storage['username']=res.data.token
               storage.setItem("username", res.data.token.token)
