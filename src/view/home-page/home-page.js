@@ -15,8 +15,16 @@ export const homePage = {
         pwd:null,
         newPwd:null,
         newPwdAgain:null
+      },
+      mianStyle:{
+        marginTop:'10px',
+        height:'440px'
+
       }
     }
+  },
+  created(){
+    this.mianStyle.height=screen.availHeight-424+'px'
   },
   methods: {
     modifyPwdAction(){
@@ -118,6 +126,10 @@ export const homePage = {
           name: '个人信息',
           path: '/userInfo',
           icon: "fa fa-address-card"
+        },{
+          name:'学生绩点追踪',
+          path:'/classGrade',
+          icon:'fa fa-line-chart'
         }]
       } else if (this.roleId == 3) {
         this.menus = [{

@@ -12,6 +12,7 @@ import questionManage from '../view/question-manage/question-manage.vue'
 import studentAnswers from '../view/student-answers/student-answers.vue'
 import factoryPage from '../view/factory-page/factory-page.vue'
 import entryTeacherInfo from '../view/entry-teacherInfo/entry-teacherInfo.vue'
+import classGrade from '../view/class-grade/class-grade.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -24,6 +25,9 @@ export default new Router({
       name: "首页",
       component: homePage,
       children: [{
+        path:'/classGrade',
+        component:classGrade
+      },{
         path: '/questionNairerequire',
         name: '调查问卷',
         component: questionNairerequire

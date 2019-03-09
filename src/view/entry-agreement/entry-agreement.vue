@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-card style="height:593px;text-align: center;">
+    <el-card style="height:300px;text-align: center;">
       <h3 style="margin-left:-75px">学生信息录入</h3>
       <span style="display:inline-block;color:red;float:right;margin-right:10%">只能同时录入一种信息</span>
       <div style="margin-left:12%;margin-top:5%;">
@@ -10,9 +10,12 @@
         </el-select>
         <span style="display:inline-block;margin-left:-100px">
         <span>学生信息:</span>
-        <el-input id="upload" style="width:250px;" type="file" @change="importfxx(this,0)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        <el-input id="upload" style="width:100px" type="file" @change="importfxx(this,0)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
         <span>学生成绩:</span>        
-        <el-input id="upload" style="width:250px" type="file" @change="importfxx(this,1)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        <el-input id="upload" style="width:100px" type="file" @change="importfxx(this,1)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+        <span>班级绩点:</span>        
+        <span style='display:inline-block'>
+          <el-input id="upload" style="width:100px" type="file" @change="importfxx(this,2)" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" /></span>
          <el-button type="info" plain @click="submitStudentInfo" style="margin-left:10px">信息按钮</el-button>
         </span>
       </div>

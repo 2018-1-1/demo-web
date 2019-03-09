@@ -1,6 +1,6 @@
 <template>
   <div style="height:578px">
-    <el-card style="padding-bottom:30px">
+    <el-card style="padding-bottom:30px;text-align:center">
       <div style="width:90%;margin-bottom:50px">
         <b style="display:inline-block;float:left">{{questionName}}</b>
         <h2>第 {{question.index}} 题</h2>

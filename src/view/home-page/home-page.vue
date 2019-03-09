@@ -57,7 +57,7 @@
             </div>
           </el-dialog>
         </el-header>
-        <el-main>
+        <el-main :style="mianStyle">
           <router-view></router-view>
         </el-main>
         <el-footer>
@@ -89,11 +89,6 @@
   .el-footer {
     text-align: center;
   }
-
-  /* .el-main {
-    text-align: center;
-  } */
-
   .el-menu-vertical-demo:not(.el-menu--collapse) {
     position: absolute;
     left: 0;

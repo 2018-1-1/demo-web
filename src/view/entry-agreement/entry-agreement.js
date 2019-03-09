@@ -8,7 +8,8 @@ export const entryAgreement = {
       userInfoList: [],
       file: "",
       studentGrande: [],
-      flag: null
+      flag: null,
+      classGrande:[]
     };
   },
   methods: {
@@ -51,6 +52,10 @@ export const entryAgreement = {
           }
           if (flag == 1) {
             _this.studentGrande = outdata;
+            _this.flag = flag;
+          }
+          if (flag == 2) {
+            _this.classGrande = outdata;
             _this.flag = flag;
           }
           // TODO 根据flag来判断传入的学生信息还是成绩
@@ -129,6 +134,39 @@ export const entryAgreement = {
                   duration: 1000
                 });
               });
+          }
+        });
+      }
+      if(this.flag === 2){
+        this.options.forEach(it => {
+          if (it.value == this.value) {
+            this.classGrande.forEach(item => {
+              item["班级"] = it.label;
+              // item["学号"] = JSON.stringify(item["学号"]);
+            });
+
+            let obj = {
+              classGrande: this.classGrande
+            };
+            // TODO
+            console.log(obj)
+            // this.post("/api/userCourse/addCourseMark", obj)
+            //   .then(res => {
+            //     Message({
+            //       showClose: true,
+            //       message: res.msg,
+            //       type: "success",
+            //       duration: 1000
+            //     });
+            //   })
+            //   .catch(e => {
+            //     Message({
+            //       showClose: true,
+            //       message: "系统错误",
+            //       type: "warning",
+            //       duration: 1000
+            //     });
+            //   });
           }
         });
       }
