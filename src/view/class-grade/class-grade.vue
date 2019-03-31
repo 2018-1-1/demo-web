@@ -2,14 +2,13 @@
   <div>
     <el-card style="padding-top:0">
         <h3>学生绩点追踪</h3>
+        <el-button v-for="(item,key) in classList" :key="key" size="mini" @click="show(item)" style="margin-top:10px;margin-left:10px">{{item.grade}}</el-button>
       <div style="width:100%;">
-        <span v-for="(item,key) in classList" :key="key">
-          <el-button size="mini" style="margin-top:10px;margin-left:10px" @click="show(item.id)">{{item.grade}}</el-button>
-        </span>
+          <el-button  size="mini" style="margin-top:10px;margin-left:10px">{{name}}</el-button>
       </div>
       <v-echarts :options="options" style="margin-top:-40px"></v-echarts>
       <div>
-
+        
       </div>
     </el-card>
   </div>
