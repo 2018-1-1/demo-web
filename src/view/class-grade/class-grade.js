@@ -44,13 +44,13 @@ export const classGrade = {
       };
     },
     show(item){
-        console.log(item.id)
+        // console.log(item.id)
     },
     searchStudent(){
         this.get('/api/user/teacherFindClass',{teacherId:JSON.stringify(localStorage.getItem('teacherNum'))}).then(res=>{
           // this.tableData3=res.data
           let arr=[]
-          console.log(res.data)
+          // console.log(res.data)
         //   res.data.forEach(item=>{
         //     item.students.forEach(it=>{
         //       it.grade=item.grade

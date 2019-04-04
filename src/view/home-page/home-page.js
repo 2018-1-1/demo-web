@@ -44,7 +44,6 @@ export const homePage = {
             duration: 1000
           })
         }).catch(error=>{
-          // console.log(error)
         })
       }else{
         Message({

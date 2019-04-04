@@ -79,9 +79,9 @@ export const entryAgreement = {
     submitStudentInfo() {
       if (this.flag === 0) {
         this.options.forEach(it => {
-          if (it.value == this.value) {
+          if (it.value == this.value && it.label==this.userInfoList[0]['班级']) {
             this.userInfoList.forEach(item => {
-              item["班级"] = it.label;
+              // item["班级"] = it.label;
               item["学号"] = JSON.stringify(item["学号"]);
             });
             let obj = {
@@ -104,16 +104,24 @@ export const entryAgreement = {
                   duration: 1000
                 });
               });
+          }else{
+            Message({
+              showClose: true,
+              message: "文件信息与班级选择不匹配",
+              type: "warning",
+              duration: 1000
+            });
           }
         });
       }
       if(this.flag === 1){
+        console.log(this.studentGrande)
         this.options.forEach(it => {
-          if (it.value == this.value) {
-            this.studentGrande.forEach(item => {
-              item["班级"] = it.label;
-              // item["学号"] = JSON.stringify(item["学号"]);
-            });
+          if (it.value == this.value && it.label==this.studentGrande[0]['班级']) {
+            // this.studentGrande.forEach(item => {
+            //   item["班级"] = it.label;
+            //   // item["学号"] = JSON.stringify(item["学号"]);
+            // });
             let obj = {
               userCourse: this.studentGrande
             };
@@ -134,21 +142,23 @@ export const entryAgreement = {
                   duration: 1000
                 });
               });
+          }else{
+            Message({
+              showClose: true,
+              message: "文件信息与班级选择不匹配",
+              type: "warning",
+              duration: 1000
+            });
           }
         });
       }
       if(this.flag === 2){
         this.options.forEach(it => {
-          if (it.value == this.value) {
-            this.classGrande.forEach(item => {
-              item["班级"] = it.label;
-              // item["学号"] = JSON.stringify(item["学号"]);
-            });
-
+          if (it.value == this.value && it.label==this.classGrande[0]['班级']) {
+            console.log(this.classGrande[0]['班级'])
             let obj = {
-              classGrande: this.classGrande
+              studentGpa: this.classGrande
             };
-            // TODO
             console.log(obj)
             // this.post("/api/userCourse/addCourseMark", obj)
             //   .then(res => {
@@ -167,6 +177,13 @@ export const entryAgreement = {
             //       duration: 1000
             //     });
             //   });
+          }else{
+            Message({
+              showClose: true,
+              message: "文件信息与班级选择不匹配",
+              type: "warning",
+              duration: 1000
+            });
           }
         });
       }
