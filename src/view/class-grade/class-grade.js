@@ -9,13 +9,14 @@ export const classGrade = {
     return {
       options: {},
       classList: [],
-      name:"请选择所查询班级或，"
+      name:"请选择所查询班级或学生",
+      class:null,
+      studentsList:[]
     };
   },
   mounted() {
     this.getClassList();
     this.init();
-    this.searchStudent()
   },
   methods: {
     getClassList() {
@@ -25,48 +26,53 @@ export const classGrade = {
         this.classList = res.data;
       });
     },
-    init() {
+    init(sData) {
       this.options = {
         xAxis: {
           type: "category",
-          data: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+          data: ["大一上", "大一下", "大二上", "大二下","大三上", "大三下","大四上", "大四下"]
         },
         yAxis: {
           type: "value"
         },
         series: [
           {
-            data: [820, 932, 901, 934, 1290, 1330, 1320],
+            data: sData,
             type: "line",
             smooth: true
           }
         ]
       };
     },
-    show(item){
-        // console.log(item.id)
+    getSData(list){
+      let sData=[]
+      sData[0]=list.firstSemesterGpa
+      sData[1]=list.secondSemesterGpa
+      sData[2]=list.thirdlySemesterGpa
+      sData[3]=list.fourthlySemesterGpa
+      sData[4]=list.fifthSemesterGpa
+      sData[5]=list.sixthSemesterGpa
+      sData[6]=list.seventhSemesterGpa
+      sData[7]=list.eighthSemesterGpa
+      this.init(sData)
     },
-    searchStudent(){
-        this.get('/api/user/teacherFindClass',{teacherId:JSON.stringify(localStorage.getItem('teacherNum'))}).then(res=>{
-          // this.tableData3=res.data
-          let arr=[]
-          // console.log(res.data)
-        //   res.data.forEach(item=>{
-        //     item.students.forEach(it=>{
-        //       it.grade=item.grade
-        //     })
-        //     arr.push(item.students)
-        //   })
-        //   let arrAdd=[]
-        //   arr.forEach(item=>{
-        //     item.forEach(it=>{
-        //       arrAdd.push(it)
-        //     })
-        //   })
-        //   this.tableData3=arrAdd
-      
+    show(item){
+        this.class=item.id 
+        this.get('/api/grade/gpa',{gradeId:item.id}).then(res=>{
+          this.getSData(res.data)
+        })
+        this.searchStudent(item.id)
+    },
+    searchStudent(id){
+        this.get('/api/grade/findGradeStudents',{gradeId:id}).then(res=>{
+          this.studentsList=res.data      
         })
         // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },
+    showStudent(student){
+      this.get('/api/find/gpa',{userId:student.userByUserId.id}).then(res=>{
+        this.getSData(res.data)
+      })
+    }
   }
 };

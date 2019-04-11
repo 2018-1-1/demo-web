@@ -13,6 +13,13 @@ export const entryAgreement = {
     };
   },
   methods: {
+    clear(){
+      this.userInfoList=null,
+      this.value=null,
+      this.flag=null,
+      this.studentGrande=null,
+      this.classGrande=null
+    },
     importfxx(obj, flag) {
       let _this = this;
       let inputDOM = this.$refs.inputer;
@@ -93,7 +100,7 @@ export const entryAgreement = {
                   showClose: true,
                   message: res.msg,
                   type: "success",
-                  duration: 1000
+                  duration: 3000
                 });
               })
               .catch(e => {
@@ -101,7 +108,7 @@ export const entryAgreement = {
                   showClose: true,
                   message: e,
                   type: "warning",
-                  duration: 1000
+                  duration: 3000
                 });
               });
           }else{
@@ -109,13 +116,12 @@ export const entryAgreement = {
               showClose: true,
               message: "文件信息与班级选择不匹配",
               type: "warning",
-              duration: 1000
+              duration: 3000
             });
           }
         });
       }
       if(this.flag === 1){
-        console.log(this.studentGrande)
         this.options.forEach(it => {
           if (it.value == this.value && it.label==this.studentGrande[0]['班级']) {
             // this.studentGrande.forEach(item => {
@@ -131,7 +137,7 @@ export const entryAgreement = {
                   showClose: true,
                   message: res.msg,
                   type: "success",
-                  duration: 1000
+                  duration: 3000
                 });
               })
               .catch(e => {
@@ -139,7 +145,7 @@ export const entryAgreement = {
                   showClose: true,
                   message: "系统错误",
                   type: "warning",
-                  duration: 1000
+                  duration: 3000
                 });
               });
           }else{
@@ -147,7 +153,7 @@ export const entryAgreement = {
               showClose: true,
               message: "文件信息与班级选择不匹配",
               type: "warning",
-              duration: 1000
+              duration: 3000
             });
           }
         });
@@ -155,38 +161,40 @@ export const entryAgreement = {
       if(this.flag === 2){
         this.options.forEach(it => {
           if (it.value == this.value && it.label==this.classGrande[0]['班级']) {
-            console.log(this.classGrande[0]['班级'])
+            this.classGrande.forEach(item => {
+                item["学号"] = JSON.stringify(item["学号"]);
+              });
             let obj = {
-              studentGpa: this.classGrande
+              studentsGpa: this.classGrande
             };
-            console.log(obj)
-            // this.post("/api/userCourse/addCourseMark", obj)
-            //   .then(res => {
-            //     Message({
-            //       showClose: true,
-            //       message: res.msg,
-            //       type: "success",
-            //       duration: 1000
-            //     });
-            //   })
-            //   .catch(e => {
-            //     Message({
-            //       showClose: true,
-            //       message: "系统错误",
-            //       type: "warning",
-            //       duration: 1000
-            //     });
-            //   });
+            this.post("/api/create/gpa", obj)
+              .then(res => {
+                Message({
+                  showClose: true,
+                  message: '录入结束',
+                  type: "success",
+                  duration: 3000
+                });
+              })
+              .catch(e => {
+                Message({
+                  showClose: true,
+                  message: "系统错误",
+                  type: "warning",
+                  duration: 3000
+                });
+              });
           }else{
             Message({
               showClose: true,
               message: "文件信息与班级选择不匹配",
               type: "warning",
-              duration: 1000
+              duration: 3000
             });
           }
         });
       }
+      this.clear()
     }
   },
   created() {
