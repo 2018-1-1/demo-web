@@ -29,7 +29,6 @@ export const degree = {
             })
           })
           this.tableData3=arrAdd
-      
         })
         // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },

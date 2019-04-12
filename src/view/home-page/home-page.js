@@ -70,7 +70,7 @@ export const homePage = {
       localStorage.removeItem('roleId')
       localStorage.removeItem('username')
       localStorage.removeItem('teacherNum')
-      location.reload()
+      // location.reload()
       this.$router.push({
         path: "/"
       })

@@ -89,12 +89,12 @@ export const entryAgreement = {
           if (it.value == this.value && it.label==this.userInfoList[0]['班级']) {
             this.userInfoList.forEach(item => {
               // item["班级"] = it.label;
-              item["学号"] = JSON.stringify(item["学号"]);
+              item["学号"] = JSON.stringify(item["学号"])
             });
             let obj = {
               userInformation: this.userInfoList
             };
-            this.post("/api/user/create", obj)
+            this.post("/api/user/create",obj)
               .then(res => {
                 Message({
                   showClose: true,
@@ -123,7 +123,9 @@ export const entryAgreement = {
       }
       if(this.flag === 1){
         this.options.forEach(it => {
+          // if (it.value == this.value && it.label==this.studentGrande[0]['班级']) {
           if (it.value == this.value && it.label==this.studentGrande[0]['班级']) {
+
             // this.studentGrande.forEach(item => {
             //   item["班级"] = it.label;
             //   // item["学号"] = JSON.stringify(item["学号"]);
@@ -160,7 +162,9 @@ export const entryAgreement = {
       }
       if(this.flag === 2){
         this.options.forEach(it => {
+          // if (it.value == this.value && it.label==this.classGrande[0]['班级']) {
           if (it.value == this.value && it.label==this.classGrande[0]['班级']) {
+
             this.classGrande.forEach(item => {
                 item["学号"] = JSON.stringify(item["学号"]);
               });

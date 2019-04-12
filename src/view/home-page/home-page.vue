@@ -66,8 +66,8 @@
             <h3 style="color: #888;font-weight: 400">--- CONTACT ---</h3>
           </div>
           <div class="footer">
-            <a href="https://github.com/2018-1-1"><img src="../../assets/github4.png"><span>https://github.com/2018-1-1</span></a>
-            <a href="https://github.com/Merlynr"><img src="../../assets//github4.png"><span>https://github.com/Merlynr</span></a>
+            <!-- <a href="https://github.com/2018-1-1"><img src="../../assets/github4.png"><span>https://github.com/2018-1-1</span></a>
+            <a href="https://github.com/Merlynr"><img src="../../assets//github4.png"><span>https://github.com/Merlynr</span></a> -->
           </div>
           <!-- <test @getmess='get' :mess="mess"></test> -->
         </el-footer>

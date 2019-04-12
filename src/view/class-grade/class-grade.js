@@ -70,9 +70,39 @@ export const classGrade = {
         // 要进行过滤，必须改老师专业下的学生信息才可以显示
     },
     showStudent(student){
-      this.get('/api/find/gpa',{userId:student.userByUserId.id}).then(res=>{
-        this.getSData(res.data)
+      this.get('/api/find/gpas',{userId:student.userByUserId.id}).then(res=>{
+        this.getSDataStudents(res.data)
       })
+    },
+    getSDataStudents(list){
+      let sData=[]
+      list.forEach(item=>{
+        if(item.semester=="第一学期"){
+          sData[0]=item.gpa
+        }
+        if(item.semester=="第二学期"){
+          sData[1]=item.gpa
+        }
+        if(item.semester=="第三学期"){
+          sData[2]=item.gpa
+        }
+        if(item.semester=="第四学期"){
+          sData[3]=item.gpa
+        }
+        if(item.semester=="第五学期"){
+          sData[4]=item.gpa
+        }
+        if(item.semester=="第六学期"){
+          sData[5]=item.gpa
+        }
+        if(item.semester=="第七学期"){
+          sData[6]=item.gpa
+        }
+        if(item.semester=="第八学期"){
+          sData[7]=item.gpa
+        }
+      })
+      this.init(sData)
     }
   }
 };
