@@ -112,18 +112,19 @@ export const entryAgreement = {
                 });
               });
           }else{
-            Message({
-              showClose: true,
-              message: "文件信息与班级选择不匹配",
-              type: "warning",
-              duration: 3000
-            });
+            // Message({
+            //   showClose: true,
+            //   message: "文件信息与班级选择不匹配",
+            //   type: "warning",
+            //   duration: 3000
+            // });
           }
         });
       }
       if(this.flag === 1){
         this.options.forEach(it => {
           // if (it.value == this.value && it.label==this.studentGrande[0]['班级']) {
+            console.log(this.studentGrande[0]['班级']==it.label)
           if (it.value == this.value && it.label==this.studentGrande[0]['班级']) {
 
             // this.studentGrande.forEach(item => {
@@ -151,12 +152,12 @@ export const entryAgreement = {
                 });
               });
           }else{
-            Message({
-              showClose: true,
-              message: "文件信息与班级选择不匹配",
-              type: "warning",
-              duration: 3000
-            });
+            // Message({
+            //   showClose: true,
+            //   message: "文件信息与班级选择不匹配",
+            //   type: "warning",
+            //   duration: 3000
+            // });
           }
         });
       }
@@ -189,12 +190,12 @@ export const entryAgreement = {
                 });
               });
           }else{
-            Message({
-              showClose: true,
-              message: "文件信息与班级选择不匹配",
-              type: "warning",
-              duration: 3000
-            });
+            // Message({
+            //   showClose: true,
+            //   message: "文件信息与班级选择不匹配",
+            //   type: "warning",
+            //   duration: 3000
+            // });
           }
         });
       }
